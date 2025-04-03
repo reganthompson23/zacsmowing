@@ -14,6 +14,15 @@ export const Gallery = () => {
     consent: false
   });
 
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const filesArray = Array.from(e.target.files);
+      setSelectedFiles(filesArray);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -24,8 +33,7 @@ export const Gallery = () => {
       // Submit the form data to Netlify
       const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+        body: formData
       });
       
       if (response.ok) {
@@ -38,6 +46,7 @@ export const Gallery = () => {
           description: '',
           consent: false
         });
+        setSelectedFiles([]);
         alert('Thank you for your submission! We will get back to you soon.');
       } else {
         throw new Error('Form submission failed');
@@ -148,7 +157,7 @@ export const Gallery = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-4">Upload photos</label>
+                <label className="block text-sm font-medium text-gray-700 mb-4">Upload photos (optional)</label>
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center relative">
                   <input
                     type="file"
@@ -156,15 +165,24 @@ export const Gallery = () => {
                     multiple
                     accept="image/*"
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    onChange={(e) => {
-                      // Handle file selection if needed
-                      console.log(e.target.files);
-                    }}
+                    onChange={handleFileChange}
                   />
                   <Camera className="mx-auto h-12 w-12 text-gray-400" />
                   <p className="mt-4 text-sm text-gray-600">
                     Drop your images here, or click to upload multiple photos
                   </p>
+                  {selectedFiles.length > 0 && (
+                    <div className="mt-4">
+                      <p className="text-sm font-medium text-green-600">
+                        {selectedFiles.length} {selectedFiles.length === 1 ? 'photo' : 'photos'} selected
+                      </p>
+                      <ul className="mt-2 text-sm text-gray-500">
+                        {selectedFiles.map((file, index) => (
+                          <li key={index}>{file.name}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
 
