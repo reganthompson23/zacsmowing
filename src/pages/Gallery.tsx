@@ -2,7 +2,7 @@ import { Carousel } from '../components/Carousel';
 import { useState } from 'react';
 import { Phone, MessageSquare, Camera } from 'lucide-react';
 
-const images = Array.from({ length: 12 }, (_, i) => `/images/ZacsCarousel/zaccy${i + 1}.jpg`);
+const images = Array.from({ length: 24 }, (_, i) => `/images/ZacsCarousel/zaccy${i + 1}.jpg`);
 
 export const Gallery = () => {
   const [formData, setFormData] = useState({

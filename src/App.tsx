@@ -106,16 +106,33 @@ function App() {
 
             {/* Logo - Centered on mobile */}
             <div className="flex-1 flex justify-center md:justify-start">
-              <img 
-                src="/images/homepageservices/logo.png" 
-                alt="Zac's Mowing" 
-                className="h-12 w-auto"
-              />
+              <button 
+                onClick={() => {
+                  if (currentPage === 'home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    setCurrentPage('home');
+                  }
+                }}
+                className="focus:outline-none"
+              >
+                <img 
+                  src="/images/homepageservices/logo.png" 
+                  alt="Zac's Mowing" 
+                  className="h-12 w-auto cursor-pointer"
+                />
+              </button>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={() => setCurrentPage('home')} className="text-gray-600 hover:text-green-600 font-medium">Home</button>
+              <button onClick={() => {
+                if (currentPage === 'home') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  setCurrentPage('home');
+                }
+              }} className="text-gray-600 hover:text-green-600 font-medium">Home</button>
               <button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-green-600 font-medium">Services</button>
               <button onClick={() => setCurrentPage('gallery')} className="text-gray-600 hover:text-green-600 font-medium">Gallery</button>
               <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-green-600 font-medium">Contact</button>
@@ -138,7 +155,14 @@ function App() {
           {isMenuOpen && (
             <div className="md:hidden py-6 border-t">
               <nav className="flex flex-col space-y-6">
-                <button onClick={() => { setCurrentPage('home'); setIsMenuOpen(false); }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Home</button>
+                <button onClick={() => {
+                  if (currentPage === 'home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    setCurrentPage('home');
+                  }
+                  setIsMenuOpen(false);
+                }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Home</button>
                 <button onClick={() => { scrollToSection('services'); setIsMenuOpen(false); }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Services</button>
                 <button onClick={() => { setCurrentPage('gallery'); setIsMenuOpen(false); }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Gallery</button>
                 <button onClick={() => { scrollToSection('contact'); setIsMenuOpen(false); }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Contact</button>
