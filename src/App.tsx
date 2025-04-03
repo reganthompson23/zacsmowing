@@ -31,9 +31,13 @@ function App() {
     try {
       const formData = new FormData(form);
       
+      // Add form-name field that Netlify requires
+      formData.append("form-name", "contact");
+      
       // Submit the form data to Netlify
-      const response = await fetch('/', {
-        method: 'POST',
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "multipart/form-data" },
         body: formData
       });
       
