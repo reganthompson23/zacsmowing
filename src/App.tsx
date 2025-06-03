@@ -180,6 +180,11 @@ function App() {
 
       {/* Add padding to account for fixed header */}
       <div className="pt-20">
+        {/* Location Banner */}
+        <div className="bg-green-50 text-green-800 py-2 text-center font-medium border-b border-green-100">
+          Servicing Murgon to Kingaroy, based out of Wondai
+        </div>
+
         {currentPage === 'gallery' ? (
           <>
             <Gallery />
