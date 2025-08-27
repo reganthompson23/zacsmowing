@@ -1,61 +1,10 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Upload, ChevronRight, Camera, Menu, X } from 'lucide-react';
+import { Phone, MessageSquare, ChevronRight, Menu, X } from 'lucide-react';
 import { Gallery } from './pages/Gallery';
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    description: '',
-    consent: false
-  });
-
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files);
-      setSelectedFiles(filesArray);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    
-    try {
-      const formData = new FormData(form);
-      
-      const response = await fetch("/", {
-        method: "POST",
-        body: formData
-      });
-      
-      if (response.ok) {
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          address: '',
-          description: '',
-          consent: false
-        });
-        setSelectedFiles([]);
-        alert('Thank you for your submission! We will get back to you soon.');
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Sorry, there was an error submitting your form. Please try again.');
-    }
-  };
 
   const services = [
     {
@@ -288,150 +237,35 @@ function App() {
               </div>
             </div>
 
-            {/* Contact Form Section */}
+            {/* Contact Section */}
             <div id="contact" className="py-20 bg-white">
               <div className="container mx-auto px-4">
-                <div className="max-w-3xl mx-auto">
-                  <h2 className="text-4xl font-bold text-center mb-4">Get Your Free Quote</h2>
-                  <p className="text-center text-gray-600 mb-12">Fill in the details below and we'll call you with a quote as soon as possible.</p>
+                <div className="max-w-3xl mx-auto text-center">
+                  <h2 className="text-4xl font-bold mb-4">Get Your Free Quote</h2>
+                  <p className="text-gray-600 mb-8">Click below to send us an email with your property details for a free quote.</p>
                   
-                  <form 
-                    name="contact" 
-                    method="POST" 
-                    action="/"
-                    data-netlify="true" 
-                    data-netlify-honeypot="bot-field"
-                    encType="multipart/form-data"
-                    onSubmit={handleSubmit} 
-                    className="space-y-6"
+                  <a 
+                    href="mailto:zacsmowingapm@gmail.com?subject=Quote%20Request%20for%20Property%20Maintenance&body=Hi%20Zac%2C%0D%0A%0D%0AI'm%20interested%20in%20getting%20a%20quote%20for%20my%20property.%0D%0A%0D%0AProperty%20Address%3A%0D%0A%0D%0AService(s)%20Required%3A%0D%0A%0D%0AAdditional%20Details%3A%0D%0A%0D%0ABest%20Contact%20Number%3A"
+                    className="inline-flex items-center bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                   >
-                    <input type="hidden" name="form-name" value="contact" />
-                    <div className="hidden">
-                      <input name="bot-field" />
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                          value={formData.name}
-                          onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                          value={formData.email}
-                          onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Address *</label>
-                        <input
-                          type="text"
-                          name="address"
-                          required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                          placeholder="Street number, street name, suburb, postcode"
-                          value={formData.address}
-                          onChange={(e) => setFormData({...formData, address: e.target.value})}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Describe your request</label>
-                      <textarea
-                        name="description"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        rows={4}
-                        placeholder="Please summarise in a few words what you're looking for"
-                        value={formData.description}
-                        onChange={(e) => setFormData({...formData, description: e.target.value})}
-                      ></textarea>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-4">Upload photos (optional)</label>
-                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center relative">
-                        <input
-                          type="file"
-                          name="photos"
-                          multiple
-                          accept="image/*"
-                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                          onChange={handleFileChange}
-                        />
-                        <Camera className="mx-auto h-12 w-12 text-gray-400" />
-                        <p className="mt-4 text-sm text-gray-600">
-                          Drop your images here, or click to upload multiple photos
-                        </p>
-                        {selectedFiles.length > 0 && (
-                          <div className="mt-4">
-                            <p className="text-sm font-medium text-green-600">
-                              {selectedFiles.length} {selectedFiles.length === 1 ? 'photo' : 'photos'} selected
-                            </p>
-                            <ul className="mt-2 text-sm text-gray-500">
-                              {selectedFiles.map((file, index) => (
-                                <li key={index}>{file.name}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="flex items-start">
-                      <input
-                        type="checkbox"
-                        name="consent"
-                        className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
-                        checked={formData.consent}
-                        required
-                        onChange={(e) => setFormData({...formData, consent: e.target.checked})}
-                      />
-                      <label className="ml-2 text-sm text-gray-600">
-                        I consent to receive texts, calls and emails from Zac's Mowing in regards to my requested service as well as occasional marketing and follow up info.
-                      </label>
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold"
+                    <MessageSquare className="mr-2 h-5 w-5" />
+                    Get Online Estimate
+                  </a>
+                  
+                  <div className="mt-8 flex justify-center gap-4">
+                    <a 
+                      href="tel:0487651990" 
+                      className="inline-flex items-center bg-white border-2 border-green-600 text-green-600 px-6 py-2 rounded-lg font-semibold hover:bg-green-50"
                     >
-                      Request Online Estimate
-                    </button>
-                  </form>
-
-                  <div className="mt-12 flex justify-center gap-3">
-                    <a href="tel:0487651990" className="bg-white hover:bg-gray-100 text-green-600 border-2 border-green-600 px-6 py-2 rounded-lg font-semibold flex items-center">
-                      <Phone className="h-4 w-4 mr-2" />
+                      <Phone className="mr-2 h-5 w-5" />
                       Call Now
                     </a>
-                    <a href="sms:0487651990" className="bg-white hover:bg-gray-100 text-green-600 border-2 border-green-600 px-6 py-2 rounded-lg font-semibold flex items-center">
-                      <MessageSquare className="h-4 w-4 mr-2" />
-                      Send Text
+                    <a 
+                      href="sms:0487651990" 
+                      className="inline-flex items-center bg-white border-2 border-green-600 text-green-600 px-6 py-2 rounded-lg font-semibold hover:bg-green-50"
+                    >
+                      <MessageSquare className="mr-2 h-5 w-5" />
+                      Text Now
                     </a>
                   </div>
                 </div>
