@@ -268,6 +268,21 @@ function App() {
                       Text Now
                     </a>
                   </div>
+                  
+                  <div className="mt-6 flex flex-col items-center gap-3">
+                    <a 
+                      href="tel:0487651990" 
+                      className="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors"
+                    >
+                      0487 651 990
+                    </a>
+                    <a 
+                      href="mailto:zacsmowingapm@gmail.com" 
+                      className="text-lg text-gray-600 hover:text-green-600 transition-colors"
+                    >
+                      zacsmowingapm@gmail.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
