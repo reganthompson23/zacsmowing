@@ -10,22 +10,22 @@ function App() {
   const services = [
     {
       title: "Lawn Maintenance Services",
-      description: "Keep your lawn looking pristine with our reliable lawn mowing and maintenance services. Our experienced team ensures your grass is always well-manicured and healthy.",
+      description: "Keep your lawn looking pristine with our reliable lawn mowing and maintenance services throughout Kingaroy, Wondai and the South Burnett. Our experienced local team ensures your grass is always well-manicured and healthy.",
       image: "/images/homepageservices/lawn.webp"
     },
     {
       title: "Block Slashing & Brushcutting",
-      description: "Tackle overgrown areas with our efficient block slashing and brushcutting services. Ideal for large or small properties, we clear thick grass and brush.",
+      description: "Tackle overgrown areas with our efficient block slashing and brushcutting services across the South Burnett region. From Murgon to Kingaroy, ideal for large acreages and rural properties, we clear thick grass and brush on any terrain.",
       image: "/images/homepageservices/block.webp"
     },
     {
       title: "Hedging and Tree Pruning",
-      description: "Enhance the beauty and health of your hedges and trees with our expert trimming and pruning services. Our skilled professionals meticulously shape and maintain your landscape.",
+      description: "Enhance the beauty and health of your hedges and trees with our expert trimming and pruning services. Servicing Wondai, Moffatdale and surrounding areas, our skilled professionals meticulously shape and maintain your South Burnett landscape.",
       image: "/images/homepageservices/brush.webp"
     },
     {
       title: "Landscape Maintenance and Cleanup",
-      description: "Prepare your property for sale, bond claims, or simply give it a fresh start with our comprehensive clean-up services. We manage everything from light tree work to complete tidy-ups.",
+      description: "Prepare your property for sale, bond claims, or simply give it a fresh start with our comprehensive clean-up services throughout the Kingaroy region. From Wooroolin to Booie, we manage everything from light tree work to complete property tidy-ups.",
       image: "/images/homepageservices/land.webp"
     }
   ];
@@ -206,7 +206,8 @@ function App() {
                 <div className="container mx-auto px-4 h-full flex items-center">
                   <div className="max-w-3xl text-white">
                     <h1 className="text-5xl font-bold mb-6">Transform Your Outdoors with Expert Lawn and Property Care</h1>
-                    <p className="text-xl mb-8">Experience reliable and professional services for all your lawn and property maintenance needs.</p>
+                    <p className="text-xl mb-4">Proudly serving Kingaroy, Wondai, Murgon and the South Burnett region</p>
+                    <p className="text-lg mb-8">Experience reliable and professional services for all your lawn and property maintenance needs across the South Burnett.</p>
                     <div className="flex gap-4">
                       <button 
                         onClick={() => scrollToSection('contact')} 
