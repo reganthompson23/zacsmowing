@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, MessageSquare, ChevronRight, Menu, X } from 'lucide-react';
 import { Gallery } from './pages/Gallery';
+import { ServiceAreas } from './pages/ServiceAreas';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,6 +83,7 @@ function App() {
                 }
               }} className="text-gray-600 hover:text-green-600 font-medium">Home</button>
               <button onClick={() => scrollToSection('services')} className="text-gray-600 hover:text-green-600 font-medium">Services</button>
+              <button onClick={() => setCurrentPage('service-areas')} className="text-gray-600 hover:text-green-600 font-medium">Service Areas</button>
               <button onClick={() => setCurrentPage('gallery')} className="text-gray-600 hover:text-green-600 font-medium">Gallery</button>
               <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-green-600 font-medium">Contact</button>
               <a href="tel:0487651990" className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 flex items-center">
@@ -112,6 +114,7 @@ function App() {
                   setIsMenuOpen(false);
                 }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Home</button>
                 <button onClick={() => { scrollToSection('services'); setIsMenuOpen(false); }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Services</button>
+                <button onClick={() => { setCurrentPage('service-areas'); setIsMenuOpen(false); }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Service Areas</button>
                 <button onClick={() => { setCurrentPage('gallery'); setIsMenuOpen(false); }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Gallery</button>
                 <button onClick={() => { scrollToSection('contact'); setIsMenuOpen(false); }} className="text-center text-gray-800 hover:text-green-600 font-semibold text-2xl tracking-wide uppercase">Contact</button>
                 <div className="flex flex-col space-y-3 pt-6 px-4">
@@ -139,6 +142,33 @@ function App() {
         {currentPage === 'gallery' ? (
           <>
             <Gallery />
+            {/* Footer */}
+            <footer className="bg-gray-900 text-white py-8">
+              <div className="container mx-auto px-4">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <img 
+                      src="/images/homepageservices/logo.png" 
+                      alt="Zac's Mowing" 
+                      className="h-10 w-auto brightness-0 invert"
+                    />
+                    <span className="text-sm">© 2024 Zac's Mowing</span>
+                  </div>
+                  <a 
+                    href="https://www.reganthompson.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    Website by Regan Thompson
+                  </a>
+                </div>
+              </div>
+            </footer>
+          </>
+        ) : currentPage === 'service-areas' ? (
+          <>
+            <ServiceAreas />
             {/* Footer */}
             <footer className="bg-gray-900 text-white py-8">
               <div className="container mx-auto px-4">
