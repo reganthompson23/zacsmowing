@@ -1,4 +1,4 @@
-import { Phone, MapPin, ChevronRight } from 'lucide-react';
+import { Phone, MapPin, ChevronRight, MessageSquare } from 'lucide-react';
 
 export const ServiceAreas = () => {
   const areas = [
@@ -44,9 +44,6 @@ export const ServiceAreas = () => {
     }
   ];
 
-  const scrollToContact = () => {
-    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -132,28 +129,52 @@ export const ServiceAreas = () => {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-gray-50 py-16">
+      {/* Contact Section */}
+      <div className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-lg text-gray-600 mb-8">
               Contact us today for a free quote on your property maintenance needs anywhere in the South Burnett region.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={scrollToContact}
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center justify-center"
-              >
-                Get Free Quote
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </button>
+            
+            <a 
+              href="mailto:zacsmowingapm@gmail.com?subject=Quote%20Request%20for%20Property%20Maintenance&body=Hi%20Zac%2C%0D%0A%0D%0AI'm%20interested%20in%20getting%20a%20quote%20for%20my%20property.%0D%0A%0D%0AProperty%20Address%3A%0D%0A%0D%0AService(s)%20Required%3A%0D%0A%0D%0AAdditional%20Details%3A%0D%0A%0D%0ABest%20Contact%20Number%3A"
+              className="inline-flex items-center bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+            >
+              <MessageSquare className="mr-2 h-5 w-5" />
+              Get Online Estimate
+            </a>
+            
+            <div className="mt-8 flex justify-center gap-4">
               <a 
-                href="tel:0487651990"
-                className="bg-white border-2 border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 rounded-lg font-semibold flex items-center justify-center"
+                href="tel:0487651990" 
+                className="inline-flex items-center bg-white border-2 border-green-600 text-green-600 px-6 py-2 rounded-lg font-semibold hover:bg-green-50"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call Now
+              </a>
+              <a 
+                href="sms:0487651990" 
+                className="inline-flex items-center bg-white border-2 border-green-600 text-green-600 px-6 py-2 rounded-lg font-semibold hover:bg-green-50"
+              >
+                <MessageSquare className="mr-2 h-5 w-5" />
+                Text Now
+              </a>
+            </div>
+            
+            <div className="mt-6 flex flex-col items-center gap-3">
+              <a 
+                href="tel:0487651990" 
+                className="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors"
+              >
+                0487 651 990
+              </a>
+              <a 
+                href="mailto:zacsmowingapm@gmail.com" 
+                className="text-lg text-gray-600 hover:text-green-600 transition-colors"
+              >
+                zacsmowingapm@gmail.com
               </a>
             </div>
           </div>
