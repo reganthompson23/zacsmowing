@@ -1,6 +1,14 @@
 import { Phone, MapPin, ChevronRight, MessageSquare } from 'lucide-react';
+import { useEffect } from 'react';
 
 export const ServiceAreas = () => {
+  useEffect(() => {
+    document.title = 'Service Areas | Kingaroy, Wondai, Murgon, Moffatdale - Zac\'s Mowing';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Zac\'s Mowing services Kingaroy, Wondai, Murgon, Moffatdale, Wooroolin, Tingoora, Wattle Camp and Booie. Local lawn mowing and property maintenance across the South Burnett.');
+    }
+  }, []);
   const areas = [
     {
       name: "Kingaroy",

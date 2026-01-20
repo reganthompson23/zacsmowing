@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, MessageSquare, ChevronRight, Menu, X } from 'lucide-react';
 import { Gallery } from './pages/Gallery';
 import { ServiceAreas } from './pages/ServiceAreas';
@@ -6,6 +6,16 @@ import { ServiceAreas } from './pages/ServiceAreas';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
+
+  useEffect(() => {
+    if (currentPage === 'home') {
+      document.title = 'Zac\'s Mowing & Property Maintenance | Kingaroy, Wondai, Murgon - South Burnett';
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', 'Professional lawn mowing and property maintenance servicing Kingaroy, Wondai, Murgon, Moffatdale, Wooroolin, Tingoora, Wattle Camp and Booie. Based in Wondai, South Burnett. Free quotes available.');
+      }
+    }
+  }, [currentPage]);
 
   const services = [
     {
@@ -67,7 +77,7 @@ function App() {
               >
                 <img 
                   src="/images/homepageservices/logo.png" 
-                  alt="Zac's Mowing" 
+                  alt="Zac's Mowing & Property Maintenance - Kingaroy, Wondai, South Burnett QLD" 
                   className="h-12 w-auto cursor-pointer"
                 />
               </button>
@@ -149,7 +159,7 @@ function App() {
                   <div className="flex items-center gap-4">
                     <img 
                       src="/images/homepageservices/logo.png" 
-                      alt="Zac's Mowing" 
+                      alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
                       className="h-10 w-auto brightness-0 invert"
                     />
                     <span className="text-sm">© 2024 Zac's Mowing</span>
@@ -176,7 +186,7 @@ function App() {
                   <div className="flex items-center gap-4">
                     <img 
                       src="/images/homepageservices/logo.png" 
-                      alt="Zac's Mowing" 
+                      alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
                       className="h-10 w-auto brightness-0 invert"
                     />
                     <span className="text-sm">© 2024 Zac's Mowing</span>
@@ -236,7 +246,7 @@ function App() {
                     <div key={index} className="relative h-[400px] bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                       <img 
                         src={service.image} 
-                        alt={service.title} 
+                        alt={`${service.title} in Kingaroy, Wondai and South Burnett - Zac's Mowing`}
                         className="absolute inset-0 w-full h-full object-cover"
                       />
                       {/* Gradient overlay only on bottom half */}
@@ -325,7 +335,7 @@ function App() {
                   <div className="flex items-center gap-4">
                     <img 
                       src="/images/homepageservices/logo.png" 
-                      alt="Zac's Mowing" 
+                      alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
                       className="h-10 w-auto brightness-0 invert"
                     />
                     <span className="text-sm">© 2024 Zac's Mowing</span>

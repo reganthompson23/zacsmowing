@@ -1,9 +1,17 @@
 import { Carousel } from '../components/Carousel';
 import { Phone, MessageSquare } from 'lucide-react';
+import { useEffect } from 'react';
 
 const images = Array.from({ length: 24 }, (_, i) => `/images/ZacsCarousel/zaccy${i + 1}.jpg`);
 
 export const Gallery = () => {
+  useEffect(() => {
+    document.title = 'Before & After Gallery | Zac\'s Mowing - Kingaroy, Wondai, South Burnett';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'View our before and after gallery of lawn mowing and property maintenance work across Kingaroy, Wondai, Murgon and the South Burnett region.');
+    }
+  }, []);
 
   return (
     <>
