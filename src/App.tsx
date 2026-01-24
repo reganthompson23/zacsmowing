@@ -156,13 +156,23 @@ function App() {
             <footer className="bg-gray-900 text-white py-8">
               <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <img 
-                      src="/images/homepageservices/logo.png" 
-                      alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
-                      className="h-10 w-auto brightness-0 invert"
-                    />
-                    <span className="text-sm">© 2024 Zac's Mowing</span>
+                  <div className="flex flex-col items-center md:items-start gap-2">
+                    <div className="flex items-center gap-4">
+                      <img 
+                        src="/images/homepageservices/logo.png" 
+                        alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
+                        className="h-10 w-auto brightness-0 invert"
+                      />
+                      <span className="text-sm">© 2024 Zac's Mowing</span>
+                    </div>
+                    <div className="text-sm text-gray-400">
+                      <p>Reece Court, Wondai QLD 4606</p>
+                      <p className="mt-1">
+                        <a href="tel:0487651990" className="hover:text-white transition-colors">0487 651 990</a>
+                        {' • '}
+                        <a href="mailto:zacsmowingapm@gmail.com" className="hover:text-white transition-colors">zacsmowingapm@gmail.com</a>
+                      </p>
+                    </div>
                   </div>
                   <a 
                     href="https://www.reganthompson.com" 
@@ -183,13 +193,23 @@ function App() {
             <footer className="bg-gray-900 text-white py-8">
               <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <img 
-                      src="/images/homepageservices/logo.png" 
-                      alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
-                      className="h-10 w-auto brightness-0 invert"
-                    />
-                    <span className="text-sm">© 2024 Zac's Mowing</span>
+                  <div className="flex flex-col items-center md:items-start gap-2">
+                    <div className="flex items-center gap-4">
+                      <img 
+                        src="/images/homepageservices/logo.png" 
+                        alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
+                        className="h-10 w-auto brightness-0 invert"
+                      />
+                      <span className="text-sm">© 2024 Zac's Mowing</span>
+                    </div>
+                    <div className="text-sm text-gray-400">
+                      <p>Reece Court, Wondai QLD 4606</p>
+                      <p className="mt-1">
+                        <a href="tel:0487651990" className="hover:text-white transition-colors">0487 651 990</a>
+                        {' • '}
+                        <a href="mailto:zacsmowingapm@gmail.com" className="hover:text-white transition-colors">zacsmowingapm@gmail.com</a>
+                      </p>
+                    </div>
                   </div>
                   <a 
                     href="https://www.reganthompson.com" 
@@ -332,13 +352,23 @@ function App() {
             <footer className="bg-gray-900 text-white py-8">
               <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <img 
-                      src="/images/homepageservices/logo.png" 
-                      alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
-                      className="h-10 w-auto brightness-0 invert"
-                    />
-                    <span className="text-sm">© 2024 Zac's Mowing</span>
+                  <div className="flex flex-col items-center md:items-start gap-2">
+                    <div className="flex items-center gap-4">
+                      <img 
+                        src="/images/homepageservices/logo.png" 
+                        alt="Zac's Mowing & Property Maintenance - South Burnett Queensland" 
+                        className="h-10 w-auto brightness-0 invert"
+                      />
+                      <span className="text-sm">© 2024 Zac's Mowing</span>
+                    </div>
+                    <div className="text-sm text-gray-400">
+                      <p>Reece Court, Wondai QLD 4606</p>
+                      <p className="mt-1">
+                        <a href="tel:0487651990" className="hover:text-white transition-colors">0487 651 990</a>
+                        {' • '}
+                        <a href="mailto:zacsmowingapm@gmail.com" className="hover:text-white transition-colors">zacsmowingapm@gmail.com</a>
+                      </p>
+                    </div>
                   </div>
                   <a 
                     href="https://www.reganthompson.com" 
