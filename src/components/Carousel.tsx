@@ -43,14 +43,28 @@ export const Carousel = ({ images, autoPlayInterval = 5000 }: CarouselProps) => 
         className="w-full h-full transition-transform duration-500 ease-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)`, display: 'flex' }}
       >
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Slide ${index + 1}`}
-            className="w-full h-full object-cover flex-shrink-0"
-          />
-        ))}
+        {images.map((image, index) => {
+          // Lazy load: only load current image, previous, and next
+          const isVisible = Math.abs(index - currentIndex) <= 1;
+          const shouldLoad = isVisible || index === 0; // Always load first image
+          
+          return (
+            <img
+              key={index}
+              src={shouldLoad ? image : ''}
+              alt={`Before and after lawn mowing ${index + 1} - Zac's Mowing South Burnett`}
+              className="w-full h-full object-cover flex-shrink-0"
+              loading={index === 0 ? 'eager' : 'lazy'}
+              {...(shouldLoad && { onLoad: () => {
+                // Preload next image
+                if (index < images.length - 1) {
+                  const nextImg = new Image();
+                  nextImg.src = images[index + 1];
+                }
+              }})}
+            />
+          );
+        })}
       </div>
 
       {/* Navigation Arrows */}
